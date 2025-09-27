@@ -57,36 +57,41 @@ function sugerirIA() {
 }
 
 // Gráfico de Relatório com Chart.js
-const ctx = document.getElementById('reportChart').getContext('2d');
-new Chart(ctx, {
-    type: 'pie',
-    data: {
-        labels: ['Legislação', 'Modelos e Cartilhas', 'Check lists', 'Relatórios'],
-        datasets: [{
-            label: 'Consultas',
-            data: [30, 25, 20, 15],
-            backgroundColor: [
-                'rgba(59, 130, 246, 0.7)',
-                'rgba(16, 185, 129, 0.7)',
-                'rgba(251, 191, 36, 0.7)',
-                'rgba(239, 68, 68, 0.7)'
-            ],
-            borderColor: [
-                'rgba(59, 130, 246, 1)',
-                'rgba(16, 185, 129, 1)',
-                'rgba(251, 191, 36, 1)',
-                'rgba(239, 68, 68, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: { display: true, position: 'right' },
-            title: { display: true, text: 'Distribuição de Consultas' }
-        }
+window.addEventListener('DOMContentLoaded', function() {
+    const chartCanvas = document.getElementById('reportChart');
+    if (chartCanvas) {
+        const ctx = chartCanvas.getContext('2d');
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Legislação', 'Modelos e Cartilhas', 'Check lists', 'Relatórios'],
+                datasets: [{
+                    label: 'Consultas',
+                    data: [30, 25, 20, 15],
+                    backgroundColor: [
+                        'rgba(59, 130, 246, 0.7)',
+                        'rgba(16, 185, 129, 0.7)',
+                        'rgba(251, 191, 36, 0.7)',
+                        'rgba(239, 68, 68, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(16, 185, 129, 1)',
+                        'rgba(251, 191, 36, 1)',
+                        'rgba(239, 68, 68, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: true, position: 'right' },
+                    title: { display: true, text: 'Distribuição de Consultas' }
+                }
+            }
+        });
     }
 });
 
