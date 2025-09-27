@@ -105,3 +105,27 @@ const observer = new IntersectionObserver(entries => {
     });
 });
 fadeElements.forEach(el => observer.observe(el));
+
+// Buscar dados do backend e exibir no console
+fetch('/dados')
+  .then(response => response.json())
+  .then(data => {
+    console.log('Dados do banco:', data);
+    // Aqui você pode atualizar o DOM conforme necessário
+  });
+
+// Enviar novo dado para o backend
+function enviarDado() {
+  fetch('/dados', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      categoria: 'Check lists',
+      descricao: 'Exemplo de integração'
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Resposta do backend:', data);
+  });
+}
