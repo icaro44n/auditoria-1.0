@@ -58,19 +58,18 @@ function sugerirIA() {
 
 // Gráfico de Relatório com Chart.js
 const ctx = document.getElementById('reportChart').getContext('2d');
-// Altere 'bar' para 'pie' para pizza, ou 'bar' com indexAxis: 'y' para barra horizontal
 new Chart(ctx, {
-    type: 'bar', // Troque para 'pie' se quiser pizza
+    type: 'pie',
     data: {
         labels: ['Legislação', 'Modelos e Cartilhas', 'Check lists', 'Relatórios'],
         datasets: [{
             label: 'Consultas',
-            data: [30, 25, 20, 15], // Exemplo de dados
+            data: [30, 25, 20, 15],
             backgroundColor: [
-                'rgba(59, 130, 246, 0.7)', // Legislação
-                'rgba(16, 185, 129, 0.7)', // Modelos e Cartilhas
-                'rgba(251, 191, 36, 0.7)', // Check lists
-                'rgba(239, 68, 68, 0.7)'   // Relatórios
+                'rgba(59, 130, 246, 0.7)',
+                'rgba(16, 185, 129, 0.7)',
+                'rgba(251, 191, 36, 0.7)',
+                'rgba(239, 68, 68, 0.7)'
             ],
             borderColor: [
                 'rgba(59, 130, 246, 1)',
@@ -82,15 +81,11 @@ new Chart(ctx, {
         }]
     },
     options: {
-        indexAxis: 'y', // Remove esta linha para barra vertical, troque para 'pie' para pizza
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
             legend: { display: true, position: 'right' },
             title: { display: true, text: 'Distribuição de Consultas' }
-        },
-        scales: {
-            x: { beginAtZero: true }
         }
     }
 });
