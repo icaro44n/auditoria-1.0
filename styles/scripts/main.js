@@ -17,12 +17,11 @@ particlesJS('particles-js', {
     retina_detect: true
 });
 
-// Dark Mode Toggle com Detecção Automática
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    document.body.classList.add('dark-mode');
-}
+// Dark Mode Toggle
 document.getElementById('darkModeToggle').addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
+    const button = document.getElementById('darkModeToggle');
+    button.textContent = document.body.classList.contains('dark-mode') ? 'Desativar Dark Mode' : 'Ativar Dark Mode';
 });
 
 // Hamburger Menu Toggle
@@ -50,17 +49,14 @@ function adicionarChecklist() {
     }
 }
 
-// AI Sugestão Sutil com Popover
-document.getElementById('iaHelp').addEventListener('click', () => {
-    document.getElementById('iaPopover').classList.toggle('hidden');
-});
+// Sugestão de IA Simulada
 function sugerirIA() {
     const input = document.getElementById('iaInput').value;
     const response = document.getElementById('iaResponse');
-    response.textContent = input ? `Sugestão: Adicione um checklist para "${input}" para conformidade.` : 'Digite algo.';
+    response.textContent = input ? `Sugestão de IA: Adicione um checklist para "${input}" para garantir conformidade.` : 'Digite algo para sugestão.';
 }
 
-// Gráfico com Chart.js
+// Gráfico de Relatório com Chart.js
 const ctx = document.getElementById('reportChart').getContext('2d');
 new Chart(ctx, {
     type: 'bar',
@@ -71,7 +67,7 @@ new Chart(ctx, {
     options: { scales: { y: { beginAtZero: true } }, responsive: true, maintainAspectRatio: false }
 });
 
-// Fade-In Animations
+// Scroll-Triggered Fade-In Animations
 const fadeElements = document.querySelectorAll('.fade-in');
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
