@@ -22,3 +22,14 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; } /* Fonte dinâmica */
 #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
 /* Mobile Menu Styles */
 #navMenu.show { display: flex; flex-col: column; space-y-4; position: absolute; top: 100%; right: 0; background: #1e40af; padding: 1rem; border-radius: 0.5rem; }
+#navMenu.show {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #1e40af;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    gap: 1rem;
+}
