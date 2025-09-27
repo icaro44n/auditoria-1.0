@@ -58,13 +58,41 @@ function sugerirIA() {
 
 // Gráfico de Relatório com Chart.js
 const ctx = document.getElementById('reportChart').getContext('2d');
+// Altere 'bar' para 'pie' para pizza, ou 'bar' com indexAxis: 'y' para barra horizontal
 new Chart(ctx, {
-    type: 'bar',
+    type: 'bar', // Troque para 'pie' se quiser pizza
     data: {
-        labels: ['Item 1', 'Item 2', 'Item 3'],
-        datasets: [{ label: 'Conformidade', data: [80, 90, 70], backgroundColor: 'rgba(54, 162, 235, 0.6)' }]
+        labels: ['Legislação', 'Modelos e Cartilhas', 'Check lists', 'Relatórios'],
+        datasets: [{
+            label: 'Consultas',
+            data: [30, 25, 20, 15], // Exemplo de dados
+            backgroundColor: [
+                'rgba(59, 130, 246, 0.7)', // Legislação
+                'rgba(16, 185, 129, 0.7)', // Modelos e Cartilhas
+                'rgba(251, 191, 36, 0.7)', // Check lists
+                'rgba(239, 68, 68, 0.7)'   // Relatórios
+            ],
+            borderColor: [
+                'rgba(59, 130, 246, 1)',
+                'rgba(16, 185, 129, 1)',
+                'rgba(251, 191, 36, 1)',
+                'rgba(239, 68, 68, 1)'
+            ],
+            borderWidth: 1
+        }]
     },
-    options: { scales: { y: { beginAtZero: true } }, responsive: true, maintainAspectRatio: false }
+    options: {
+        indexAxis: 'y', // Remove esta linha para barra vertical, troque para 'pie' para pizza
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: { display: true, position: 'right' },
+            title: { display: true, text: 'Distribuição de Consultas' }
+        },
+        scales: {
+            x: { beginAtZero: true }
+        }
+    }
 });
 
 // Scroll-Triggered Fade-In Animations
